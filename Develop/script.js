@@ -11,6 +11,7 @@ var specBool = false;
 
 function generatePassword() {
   console.clear();
+  availChar = "";
   // This is the prompt for # of characters
   var passLength = "";
   while (passLength !== NaN) {
@@ -39,7 +40,6 @@ function generatePassword() {
         availChar = availChar + lowString;
         console.log("Your password may include lowercase letters.");
       } else if (lowCase.toLowerCase() === "no") {
-        availChar = availChar - lowString;
         console.log("Your password will not include lowercase letters.");
       }
       break;
@@ -60,7 +60,6 @@ function generatePassword() {
         availChar = availChar + upString;
         console.log("Your password may include uppercase letters.");
       } else if (upCase.toLowerCase() === "no") {
-        availChar = availChar - upString;
         console.log("Your password will not include uppercase letters.");
       }
       break;
@@ -79,7 +78,6 @@ function generatePassword() {
         availChar = availChar + numbers;
         console.log("Your password may include numbers.");
       } else if (addNumbs.toLowerCase() === "no") {
-        availChar = availChar - numbers;
         console.log("Your password will not include numbers.");
       }
       break;
@@ -98,12 +96,16 @@ function generatePassword() {
         availChar = availChar + specialChar;
         console.log("Your password may include special characters.");
       } else if (addSpec.toLowerCase() === "no") {
-        availChar = availChar - specialChar;
         console.log("Your password will not include special characters.");
       }
       break;
     }
     addSpec = prompt("Would you like to include special characters? Yes or No");
+  }
+
+  if (availChar === "") {
+    alert("You must answer YES to at least one of the criteria.");
+    return generatePassword();
   }
   console.log(availChar);
   var length = passLength,
