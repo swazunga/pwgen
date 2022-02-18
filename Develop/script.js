@@ -105,7 +105,7 @@ function generatePassword() {
     }
     addSpec = prompt("Would you like to include special characters? Yes or No");
   }
-
+  console.log(availChar);
   var length = passLength,
     retVal = "";
   for (var i = 0, n = availChar.length; i < length; ++i) {
