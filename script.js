@@ -107,7 +107,7 @@ function generatePassword() {
     alert("You must answer YES to at least one of the criteria.");
     return generatePassword();
   }
-  console.log(availChar);
+
   var length = passLength,
     retVal = "";
   for (var i = 0, n = availChar.length; i < length; ++i) {
