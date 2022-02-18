@@ -2,16 +2,24 @@
 
 function generatePassword() {
   var passLength = prompt(
-    "How long would you like the password to be? Enter between 8-128."
+    "How long would you like the password to be? Enter a number between 8-128."
   );
-  console.log(passLength);
-  if (passLength < 8) {
-    alert("Number must be between 8-128 characters");
-    return;
-  } else if (passLength > 128) {
-    alert("Number must be between 8-128 characters");
-    return;
+
+  if (passLength < 8 || passLength > 128) {
+    alert("Number must be between 8-128");
+    return generatePassword();
   }
+  while (passLength !== NaN) {
+    passLength = prompt(
+      "How long would you like the password to be? Enter a number between 8-128."
+    );
+    if (parseInt(passLength) > 0) {
+      break;
+    }
+  }
+
+  console.log(passLength + " is your password length");
+
   var availChar = "";
   var lowString = "abcdefghijklmnopqrstuvwxyz";
   var upString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -21,26 +29,33 @@ function generatePassword() {
   var lowCase = prompt(
     "Would you like to include lowercase characters? Yes or No"
   );
+
   if (lowCase.toLowerCase() === "yes") {
     availChar = availChar + lowString;
-  } else {
-    return;
+    console.log("Your password will include lowercase letters.");
+  } else if (lowCase.toLowerCase() === "no") {
+    availChar = availChar - lowString;
+  } 
+  while(lowCase !== "yes" || lowCase !== "no";) {
+    lowCase = prompt(
+      "Would you like to include lowercase characters? Yes or No"
+    );
   }
-
   var upCase = prompt(
     "Would you like to include uppercase characters? Yes or No"
   );
+
   if (upCase.toLowerCase() === "yes") {
     availChar = availChar + upString;
+  } else if (upCase.toLowerCase() === "no") {
+    availChar = availChar - upString;
   } else {
-    return;
   }
 
   var addNumbs = prompt("Would you like to include numbers? Yes or no");
   if (addNumbs.toLowerCase() === "yes") {
     availChar = availChar + numbers;
   } else {
-    return;
   }
 
   var addSpec = prompt(
@@ -49,7 +64,6 @@ function generatePassword() {
   if (addSpec.toLowerCase() === "yes") {
     availChar = availChar + specialChar;
   } else {
-    return;
   }
 
   var length = passLength,
