@@ -10,11 +10,14 @@ var numBool = false;
 var specBool = false;
 
 function generatePassword() {
+  console.clear();
+  // This is the prompt for # of characters
   var passLength = "";
   while (passLength !== NaN) {
     passLength = prompt(
       "How long would you like the password to be? Enter a number between 8-128."
     );
+    if (passLength === null) return;
     if (passLength < 8 || passLength > 128) {
       alert("Number must be between 8-128");
       return generatePassword();
@@ -24,10 +27,11 @@ function generatePassword() {
     }
   }
   console.log(passLength + " characters is your password length");
-
+  // this is the prompt for lowercase letters
   var lowCase = prompt(
     "Would you like to include lowercase characters? Yes or No"
   );
+  if (lowCase === null) return;
   while (lowBool === false) {
     if (lowCase === "yes" || lowCase === "no") {
       lowBool === true;
@@ -44,10 +48,11 @@ function generatePassword() {
       "Would you like to include lowercase characters? Yes or No"
     );
   }
-
+  // this is the prompt for uppercase letters
   var upCase = prompt(
     "Would you like to include uppercase characters? Yes or No"
   );
+  if (upCase === null) return;
   while (upBool === false) {
     if (upCase === "yes" || upCase === "no") {
       upBool === true;
@@ -64,8 +69,9 @@ function generatePassword() {
       "Would you like to include uppercase characters? Yes or No"
     );
   }
-
+  // this is the prompt for numbers
   var addNumbs = prompt("Would you like to include numbers? Yes or No");
+  if (addNumbs === null) return;
   while (numBool === false) {
     if (addNumbs === "yes" || addNumbs === "no") {
       numBool === true;
@@ -80,10 +86,11 @@ function generatePassword() {
     }
     addNumbs = prompt("Would you like to include numbers? Yes or No");
   }
-
+  // this is the promopt for special characters
   var addSpec = prompt(
     "Would you like to include special characters? Yes or No"
   );
+  if (addSpec === null) return;
   while (specBool === false) {
     if (addSpec === "yes" || addSpec === "no") {
       specBool === true;
@@ -100,7 +107,6 @@ function generatePassword() {
   }
 
   var length = passLength,
-    // charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
     retVal = "";
   for (var i = 0, n = availChar.length; i < length; ++i) {
     retVal += availChar.charAt(Math.floor(Math.random() * n));
