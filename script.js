@@ -34,7 +34,7 @@ function generatePassword() {
   );
   if (lowCase === null) return;
   while (lowBool === false) {
-    if (lowCase === "yes" || lowCase === "no") {
+    if (lowCase.toLowerCase() === "yes" || lowCase.toLowerCase() === "no") {
       lowBool === true;
       if (lowCase.toLowerCase() === "yes") {
         availChar = availChar + lowString;
@@ -54,7 +54,7 @@ function generatePassword() {
   );
   if (upCase === null) return;
   while (upBool === false) {
-    if (upCase === "yes" || upCase === "no") {
+    if (upCase.toLowerCase() === "yes" || upCase.toLowerCase() === "no") {
       upBool === true;
       if (upCase.toLowerCase() === "yes") {
         availChar = availChar + upString;
@@ -72,7 +72,7 @@ function generatePassword() {
   var addNumbs = prompt("Would you like to include numbers? Yes or No");
   if (addNumbs === null) return;
   while (numBool === false) {
-    if (addNumbs === "yes" || addNumbs === "no") {
+    if (addNumbs.toLowerCase() === "yes" || addNumbs.toLowerCase() === "no") {
       numBool === true;
       if (addNumbs.toLowerCase() === "yes") {
         availChar = availChar + numbers;
@@ -90,7 +90,7 @@ function generatePassword() {
   );
   if (addSpec === null) return;
   while (specBool === false) {
-    if (addSpec === "yes" || addSpec === "no") {
+    if (addSpec.toLowerCase() === "yes" || addSpec.toLowerCase() === "no") {
       specBool === true;
       if (addSpec.toLowerCase() === "yes") {
         availChar = availChar + specialChar;
