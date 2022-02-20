@@ -129,7 +129,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// The first question is repeating itself.
-// the numbers question is repeating itself.
-// Need to figure out how to do the console log in the while loop (if a first response is wrong it skips the console statement)
