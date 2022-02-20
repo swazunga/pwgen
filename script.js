@@ -32,8 +32,9 @@ function generatePassword() {
   var lowCase = prompt(
     "Would you like to include lowercase characters? Yes or No"
   );
-  if (lowCase === null) return;
+
   while (lowBool === false) {
+    if (lowCase === null) return;
     if (lowCase.toLowerCase() === "yes" || lowCase.toLowerCase() === "no") {
       lowBool === true;
       if (lowCase.toLowerCase() === "yes") {
@@ -52,8 +53,9 @@ function generatePassword() {
   var upCase = prompt(
     "Would you like to include uppercase characters? Yes or No"
   );
-  if (upCase === null) return;
+
   while (upBool === false) {
+    if (upCase === null) return;
     if (upCase.toLowerCase() === "yes" || upCase.toLowerCase() === "no") {
       upBool === true;
       if (upCase.toLowerCase() === "yes") {
@@ -70,8 +72,9 @@ function generatePassword() {
   }
   // this is the prompt for numbers
   var addNumbs = prompt("Would you like to include numbers? Yes or No");
-  if (addNumbs === null) return;
+
   while (numBool === false) {
+    if (addNumbs === null) return;
     if (addNumbs.toLowerCase() === "yes" || addNumbs.toLowerCase() === "no") {
       numBool === true;
       if (addNumbs.toLowerCase() === "yes") {
@@ -88,8 +91,9 @@ function generatePassword() {
   var addSpec = prompt(
     "Would you like to include special characters? Yes or No"
   );
-  if (addSpec === null) return;
+
   while (specBool === false) {
+    if (addSpec === null) return;
     if (addSpec.toLowerCase() === "yes" || addSpec.toLowerCase() === "no") {
       specBool === true;
       if (addSpec.toLowerCase() === "yes") {
